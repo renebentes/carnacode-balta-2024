@@ -24,3 +24,21 @@ Neste primeiro desafio, desenvolvemos todo a parte de HTML e CSS da aplicação 
 ### Recompensa
 
 <img src="https://baltaio.blob.core.windows.net/temp/carnacode-badge-desafio-01.png" alt="CarnaCode 2024 - Primeiro Desafio Completo" width="256" />
+
+## Desafio 2
+
+Neste segundo desafio, desenvolvemos uma aplicação completa para calcular o IMC (Índice de Massa Muscular). Aprendemos conceitos como Razor e Blazor, bem como rotas, componentes e outros itens do ASP.NET.
+
+### Tecnologias Utilizadas
+
+- ASP.NET
+- Razor
+- Blazor
+
+### Ferramentas Utilizadas
+
+- Visual Studio Code
+
+### Recompensa
+
+<img src="https://baltaio.blob.core.windows.net/temp/carnacode-badge-desafio-02.png" alt="CarnaCode 2024 - Segundo Desafio Completo" width="256" />
