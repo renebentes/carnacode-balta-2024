@@ -50,10 +50,10 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet build --configuration ${{env.BUILD_CONFIGURATION}} --no-restore
+        run: dotnet build -c ${{env.BUILD_CONFIGURATION}} --no-restore
 
       - name: Publish .NET
-        run: dotnet publish ${{env.PROJECT_PATH}} --configuration ${{env.BUILD_CONFIGURATION}} --output ${{env.GITHUB_PAGES_PATH}} --nologo
+        run: dotnet publish ${{env.PROJECT_PATH}} -c ${{env.BUILD_CONFIGURATION}} -o ${{env.GITHUB_PAGES_PATH}} --nologo
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
