@@ -48,7 +48,7 @@ jobs:
         run: dotnet build --configuration ${{env.BUILD_CONFIGURATION}} --no-restore
 
       - name: Publish .NET
-        run: dotnet publish --configuration ${{env.BUILD_CONFIGURATION}} --output ${{env.GITHUB_PAGES_PATH}} --nologo
+        run: dotnet publish ${{env.PROJECT_PATH}} --configuration ${{env.BUILD_CONFIGURATION}} --output ${{env.GITHUB_PAGES_PATH}} --nologo
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
