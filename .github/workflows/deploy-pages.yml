@@ -53,7 +53,7 @@ jobs:
         run: dotnet build -c ${{env.BUILD_CONFIGURATION}} --no-restore
 
       - name: Publish .NET
-        run: dotnet publish ${{env.PROJECT_PATH}} -c ${{env.BUILD_CONFIGURATION}} -o ${{env.GITHUB_PAGES_PATH}} --nologo
+        run: dotnet publish ${{env.PROJECT_PATH}} -c ${{env.BUILD_CONFIGURATION}} -o ${{env.GITHUB_PAGES_PATH}} --nologo -p GHPages=true
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
