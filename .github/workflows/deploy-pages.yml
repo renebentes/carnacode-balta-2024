@@ -7,12 +7,6 @@ on:
     paths-ignore:
       - "*.md"
 
-  pull_request:
-    branches:
-      - main
-    paths-ignore:
-      - "**.md"
-
   workflow_dispatch:
 
 env:
@@ -62,7 +56,6 @@ jobs:
         with:
           path: ${{env.GITHUB_PAGES_PATH}}/wwwroot
   deploy:
-    if: github.event.pull_request.merged == true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
