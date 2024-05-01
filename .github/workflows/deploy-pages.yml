@@ -4,8 +4,14 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "!README.md"
+    paths-ignore:
+      - "*.md"
+
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - "**.md"
 
   workflow_dispatch:
 
@@ -25,10 +31,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -57,8 +60,15 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{env.GITHUB_PAGES_PATH}}/www-root
-
+          path: ${{env.GITHUB_PAGES_PATH}}/wwwroot
+  deploy:
+    if: github.event.pull_request.merged == true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
