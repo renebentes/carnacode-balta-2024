@@ -1,5 +1,14 @@
+:root {
+  --purple-color: #2e1462;
+  --white-color: #fff;
+  --black-color: #000;
+  --cian-color: #45fefe;
+  --gray-4-color: #666;
+}
+
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--purple-color);
+  color: var(--gray-4-color);
 }
 
 h1:focus {
