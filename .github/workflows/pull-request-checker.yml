@@ -1,0 +1,42 @@
+name: Build each PR
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - "**.md"
+
+  workflow_dispatch:
+
+env:
+  DOTNET_VERSION: "8.0.x"
+  BUILD_CONFIGURATION: Release
+  PROJECT_PATH: ./src/IMC/IMC.csproj
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install .NET Wasm Tools
+        run: dotnet workload install wasm-tools
+
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build -c ${{env.BUILD_CONFIGURATION}} --no-restore
+
+      - name: Publish .NET
+        run: dotnet publish ${{env.PROJECT_PATH}} -c ${{env.BUILD_CONFIGURATION}} --nologo
