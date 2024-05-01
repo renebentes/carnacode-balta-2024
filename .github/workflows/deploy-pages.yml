@@ -60,7 +60,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{env.GITHUB_PAGES_PATH}}/www-root
+          path: ${{env.GITHUB_PAGES_PATH}}/wwwroot
   deploy:
     if: github.event.pull_request.merged == true
     environment:
