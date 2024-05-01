@@ -11,6 +11,28 @@ html, body {
   color: var(--gray-4-color);
 }
 
+.splashscreen {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.splashscreen .logo {
+  background-color: var(--white-color);
+  padding: 0.5rem;
+  border: 5px solid var(--cian-color);
+  border-radius: 20px;
+  width: 200px;
+  height: 200px;
+}
+
+.splashscreen img {
+  border-radius: 20px;
+  width: 180px;
+  height: 180px;
+}
+
 h1:focus {
   outline: none;
 }
