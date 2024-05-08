@@ -53,7 +53,7 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Change base tag in index.html to ${{ steps.setup.outputs.base_url }}
-        run: sed -i 's|<base href=".*" />|<base href="/${{ steps.setup.outputs.base_url }}/" />|g' ${{env.GITHUB_PAGES_PATH}}/wwwroot/index.html
+        run: sed -i 's|<base href=".*" />|<base href="${{ steps.setup.outputs.base_url }}/" />|g' ${{env.GITHUB_PAGES_PATH}}/wwwroot/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
