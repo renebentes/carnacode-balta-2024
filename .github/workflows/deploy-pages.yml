@@ -52,8 +52,10 @@ jobs:
         id: setup
         uses: actions/configure-pages@v4
 
-      - name: Change base tag in index.html to ${{ steps.setup.outputs.base_url }}
-        run: sed -i 's|<base href=".*" />|<base href="${{ steps.setup.outputs.base_url }}/" />|g' ${{env.GITHUB_PAGES_PATH}}/wwwroot/index.html
+      - name: Prepare requirements for GitHub Pages
+        run: |
+          sed -i 's|<base href=".*" />|<base href="${{ steps.setup.outputs.base_url }}/" />|g' ${{env.GITHUB_PAGES_PATH}}/wwwroot/index.html
+          touch ${{env.GITHUB_PAGES_PATH}}/wwwroot/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
